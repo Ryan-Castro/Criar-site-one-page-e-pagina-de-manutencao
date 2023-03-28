@@ -45,21 +45,36 @@ header{
 #secHome{
     width: 100vw;
     height: calc(100vh - 50px);
-    background-image: url("../img/bgHome.jpeg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    padding: 200px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     position: relative;
 }
-#secHome h1 {
+#carousel{
+    width: 100vw;
+    height: 100%;
+}
+#containerCarousel{
+    width: 200vw;
+    display: flex;
+    height: 100%;
+    transition: 2s;
+}
+.bgCarousel{
+    width: 100vw;
+    height: 100%;
+    background-size: cover;
+}
+#divBg1{
+    background-image: url("../img/card1.jpeg");
+}
+#divBg2{
+    background-image: url("../img/card2.jpeg");
+}
+#secHome h1{
     font-size: 35px;
 }
-#secHome>div{
+#divInfo{
     background-color: rgba(255, 255, 255, 0.9);
     width: 40%;
     padding: 40px 20px 40px 20px;
@@ -68,7 +83,8 @@ header{
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    
+    position: absolute;
+    right: 100px;
 }
 #secHome p{
     text-align: justify;
@@ -140,62 +156,129 @@ header{
     color: white;
 }
 #containterCard{
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
 }
 
 .card{
-    width: 60%;
+    width: 100%;
     border-radius: 30px;
     overflow: hidden;
     margin-bottom: 100px;
     transition: .5s;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icon{
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon img{
+    width: 60px;
 }
 .card:hover{
     transform: scale(1.2);
 }
 
-.card div{
-    background-color: white;
+.divText{
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 20px;
     gap: 20px;
 }
-.card>div>h2 {
-    text-decoration: underline;
-    color: black!important;
+.divText>h1{
+    color: white;
 }
-
-.card img{
+.divText>h2 {
+    text-decoration: underline;
+    white-space: nowrap;
+    font-size: 16px;
+}
+footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: black;
+    color: white;
+    padding: 50px;
+}
+footer h2{
+    font-size: 22px;
+}
+footer h3{
+    font-size: 16px;
+    color: #bbbbbb;
+}
+footer>div{
     width: 100%;
 }
+#divContact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px
+}
+#divContact a{
+    color: #bbbbbb;
+    text-decoration: none;
+}
+#divLogo{
+    display: flex;
+    justify-content: center;
+}
+#divLogo img{
+    width: 50%;
+}
+#divSocials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#divSocials img{
+    width: 50px;
+}
+
+
+
 
 @media (max-width: 1100px){
-    #secHome>div{
+    #divInfo{
         width: 70%;
     }
     #secAbout img{
-        width: 40%;
+        width: 45%;
+    }
+}
+@media (max-width: 1000px){
+    #containterCard{
+        grid-template-columns: 1fr 1fr;
     }
 }
 @media (max-width: 900px){
     #secAbout h2{
         font-size: 40px;
     }
+
 }
 @media (max-width: 800px){
     header{
         padding: 10px;
     }
-    #secHome{
-        padding: 20px;
-    }
-    #secHome>div{
+    #divInfo{
         width: 100%;
+        left: 0px;
+        right: 0px;
+        margin: auto;
     }
     #secAbout{
         flex-direction: column;
@@ -213,12 +296,9 @@ header{
     #secServices{
         padding-top: 10px;
     }
-    #containterCard{
-        flex-direction: column;
-        align-items: center;
-    }
-    .card{
-        width: 70%;
+    footer{
+        grid-template-columns: 1fr;
+        gap: 100px;
     }
 }
 
@@ -232,5 +312,8 @@ header{
     }
     .card{
         width: 90%;
+    }
+    #containterCard{
+        grid-template-columns: 1fr;
     }
 }
